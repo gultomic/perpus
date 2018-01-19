@@ -34430,6 +34430,7 @@ try {
   __webpack_require__(310);
   __webpack_require__(311);
   __webpack_require__(0);
+  // require('datatables.net');
 } catch (e) {}
 
 /**

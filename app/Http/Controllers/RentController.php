@@ -21,7 +21,9 @@ class RentController extends Controller
 
     public function index()
     {
-        return view('rents.index');
+        $query = Rent::all();
+        // dd($query);
+        return view('rents.index',['data' => $query]);
     }
 
     public function create()
