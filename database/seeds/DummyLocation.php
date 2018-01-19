@@ -17,7 +17,7 @@ class DummyLocation extends Seeder
         foreach ((range(1, 8)) as $index) {
             DB::table('locations')->insert([
                 'name'        => $faker->unique()->state(),
-                'description' => $faker->realText($maxNbChars = 200, $indexSize = 2)
+                'description' => $faker->realText($maxNbChars = 191, $indexSize = 2)
             ]);
         }
     }
