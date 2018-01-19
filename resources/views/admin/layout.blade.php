@@ -54,8 +54,9 @@
                                     <a><i class="fa fa-shopping-bag"></i> Perpustakaan<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" {{ Request::is('rent*') ? 'style=display:block' : null }}>
                                         <li {{ Request::is('rent') ? 'class=active' : null }}>
-                                            <a onClick="location.href='{{route('rent.index')}}'">Daftar Transaksi</a>
+                                            <a onClick="location.href='{{route('rent.index')}}'">Data Transaksi</a>
                                         </li>
+                                        <li><a>Data Booking</a></li>
                                         <li {{ Request::is('rent/create') ? 'class=active' : null }}>
                                             <a onClick="location.href='{{route('rent.create')}}'">Peminjaman</a>
                                         </li>
@@ -82,13 +83,14 @@
                                     <ul class="nav child_menu">
                                         <li><a>Daftar Member</a></li>
                                         <li><a>Tambah Member</a></li>
-                                        <li><a href="typography.html">Typography</a></li>
+                                        <li><a>Reset Password</a></li>
+                                        {{--  <li><a href="typography.html">Typography</a></li>
                                         <li><a href="icons.html">Icons</a></li>
                                         <li><a href="glyphicons.html">Glyphicons</a></li>
                                         <li><a href="widgets.html">Widgets</a></li>
                                         <li><a href="invoice.html">Invoice</a></li>
                                         <li><a href="inbox.html">Inbox</a></li>
-                                        <li><a href="calendar.html">Calendar</a></li>
+                                        <li><a href="calendar.html">Calendar</a></li>  --}}
                                     </ul>
                                 </li>
                                 {{--  <li><a><i class="fa fa-table"></i> Buku Elektronik <span class="fa fa-chevron-down"></span></a>
