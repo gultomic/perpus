@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="x_panel">
+    {{--  <div class="x_panel">  --}}
       <div class="x_title">
         <h2>Transaksi Peminjaman Buku</h2>
         <div class="clearfix"></div>
@@ -14,13 +14,21 @@
                   <tr>
                     <th>Name</th>
                     <th>Position</th>
-                    <th>Office</th>
+                    {{--  <th>Office</th>
                     <th>Age</th>
                     <th>Start date</th>
-                    <th>Salary</th>
+                    <th>Salary</th>  --}}
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach($data as $item)
+                    <tr>
+                      <td>name</td>
+                      <td>position</td>
+                    </tr>
+                  @endforeach
+                </tbody>
+                {{--  <tbody>
                   <tr>
                     <td>Tiger Nixon</td>
                     <td>System Architect</td>
@@ -477,10 +485,10 @@
                     <td>2011/01/25</td>
                     <td>$112,000</td>
                   </tr>
-                </tbody>
+                </tbody>  --}}
           </table>
-        </div>
-    </div>
+      </div>
+    {{--  </div>  --}}
   </div>
 </div>
 @endsection

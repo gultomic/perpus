@@ -23,7 +23,7 @@ class RentController extends Controller
     {
         $query = Rent::all();
         // dd($query);
-        return view('rents.index',['data' => $query]);
+        return view('rents.index', ['data' => $query]);
     }
 
     public function create()
@@ -34,5 +34,12 @@ class RentController extends Controller
     public function show()
     {
         return view('rents.show');
+    }
+
+    public function data()
+    {
+        $query = Rent::all();
+
+        return response()->json($query);
     }
 }
