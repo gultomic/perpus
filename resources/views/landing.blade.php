@@ -2,52 +2,70 @@
 @section('title', 'DIGILIB')
 @section('content')
 <!-- ==== Intro Area Start ==== -->
-<div class="intro">
-  <!-- Logo -->
-  <br><br><br><br><br><br>
-  <center>
-  <a href="#" class="logo"> 
-    <img src="img/logo.png" alt="logo">
-  </a>
-  </center>
-
-  <!-- Intro Text -->
-  <div class="intro-content">
-    <center><h2>DIGITAL LIBRARY<br> TINGKAT <span>SMP</span></h2></center>
-    <center><p>Silahkan klik "info" untuk lihat informasi Perpustakaan atau klik "mulai" untuk memulai Aplikasi</p></center>
-    <br>
-    <center>
-      @guest
-        <a href="#subscribe" class="site-btn popup">LogIn</a>
-        <a href="#register" class="site-btn popup">Daftar</a>
-      @else
-        <a href="{{ route('logout') }}"
-          onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();" 
-          class="site-btn popup">
-          LogOut
+<div class="wrapper-center">
+  <div>
+    <div class="intro">
+      <!-- Logo -->
+      {{-- <br><br><br><br><br><br> --}}
+      <center>
+        <a href="#" class="logo"> 
+          <img src="img/logo.png" alt="logo">
         </a>
-        <a href="#register" class="site-btn popup disabled">Daftar</a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            {{ csrf_field() }}
-        </form>
-      @endguest
-      <button class="site-btn" id="go_about">Info</button>
-      <button class="site-btn go_menu">Mulai</button>
-    </center>
-  </div>
+      </center>
 
-  <!-- Social Links -->
-  <!--
-  <div class="social">
-    <a href="#"><i class="fa fa-facebook"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
-    <a href="#"><i class="fa fa-google-plus"></i></a>
-    <a href="#"><i class="fa fa-vimeo"></i></a>
+      <!-- Intro Text -->
+      <div class="intro-content">
+        <center>
+          <h2>DIGITAL LIBRARY<br> TINGKAT <span>SMP</span></h2>
+        </center>
+        <center>
+          <p>Silahkan klik "info" untuk lihat informasi Perpustakaan atau klik "mulai" untuk memulai Aplikasi</p>
+        </center>
+        <br>
+        <center>
+          <ul class="home-site-btn">
+            @guest
+            <li>
+              <a href="#subscribe" class="site-btn popup">LogIn</a>
+            </li>
+            <li>
+              <a href="#register" class="site-btn popup">Daftar</a>
+            </li>
+            @else
+            <li>
+              <a href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();" 
+              class="site-btn popup">LogOut</a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+              </form>
+            </li>
+            <li>
+              <a href="#register" class="site-btn popup disabled">Daftar</a>
+            </li>
+            @endguest
+            <li>
+              <button class="site-btn" id="go_about">Info</button>
+            </li>
+            <li>
+              <button class="site-btn go_menu">Mulai</button>
+            </li>
+          </ul>
+        </center>
+        <!-- Social Links -->
+        {{-- <div class="social">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-google-plus"></i></a>
+          <a href="#"><i class="fa fa-vimeo"></i></a>
+        </div> --}}
+      </div>
+    </div>
   </div>
-  -->
 </div>
+
 
 <!-- Switch button -->
 <div class="switch">
@@ -62,10 +80,10 @@
   <div class="about-content spad">
     <h2>DIGITAL LIBRARY</h2>
     <p>
-    Digital Library merupakan layanan perpustakaan dalam bentuk digital. Anda dapat menggunakan Teknologi ini untuk keperluan Pendidikan dan Ilmu Pengetahuan lain.<br>
-    Di dalam Aplikasi ini terdapat konten-konten secara digital dan masih berkaitan dengan Perpustakaan konvensional. Konten tersebut antara lain, Konten Sumber Buku | Konten Ebook | Konten CD Pembelajaran | Konten Video | Konten Audio | Konten Foto <br>
-    Semua transaksi peminjaman buku dll dilakukan secara otomatis dan komputerisasai, sehingga mempermudah administrasi perpustakaan.<br>
-    Bagi anda pengguna baru, silahkan lakukan registrasi Member Baru agar terdaftar di database Perpustakaan sebagai member.
+      Digital Library merupakan layanan perpustakaan dalam bentuk digital. Anda dapat menggunakan Teknologi ini untuk keperluan Pendidikan dan Ilmu Pengetahuan lain.<br>
+      Di dalam Aplikasi ini terdapat konten-konten secara digital dan masih berkaitan dengan Perpustakaan konvensional. Konten tersebut antara lain, Konten Sumber Buku | Konten Ebook | Konten CD Pembelajaran | Konten Video | Konten Audio | Konten Foto <br>
+      Semua transaksi peminjaman buku dll dilakukan secara otomatis dan komputerisasai, sehingga mempermudah administrasi perpustakaan.<br>
+      Bagi anda pengguna baru, silahkan lakukan registrasi Member Baru agar terdaftar di database Perpustakaan sebagai member.
     </p>
   </div>
 
@@ -136,9 +154,9 @@
         <p>domain@gmail.com<br>support@domain.com</p>
       </div>
     </div>
-    -->
+  -->
 
-    <!-- Contact Form -->
+  <!-- Contact Form -->
     <!--
     <form action="http://ahadhossain.com/bootex/don/mail.php" id="contact-form" method="POST" >
       <div id="form-chack"></div>
@@ -157,16 +175,45 @@
         </div>
       </div>
     </form>
-    -->
-  </div>	
+  -->
+</div>	
 </div>
 @endsection
 @push('styles')
 <style>
-  .disabled {
-    pointer-events: none;
-    cursor: default;
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+.home-site-btn{
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+.home-site-btn li{
+  list-style: none;
+  display: inline-block;
+}
+.wrapper-center{
+  width: 50%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .wrapper-center {
+    width: 100%;
   }
+}
+
+@media only screen and (max-width: 767px) {
+  .wrapper-center {
+    width: 100%;
+  }
+}
 </style>
 @endpush
 @push('scripts')
