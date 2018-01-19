@@ -16,6 +16,7 @@ try {
     require('flot');
     require('datejs');
     require('moment');
+    // require('datatables.net');
 } catch (e) {}
 
 /**

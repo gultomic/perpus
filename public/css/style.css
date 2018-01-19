@@ -1007,6 +1007,30 @@ Table of contents
     border-radius: 50%;
     opacity: 1;
   }
+
+  .showdetail-content .content-header {
+    background: #2196F3;
+    padding: 10px 10px;
+  }
+  .content-header h2,
+  .content-header p {
+    color: #fff;
+    letter-spacing: normal;
+  }
+  .content-header h2 {
+    font-weight: 300;
+  }
+  .content-header p {
+    margin-bottom: 0;
+  }
+  .showmodal .mfp-close {
+    position: absolute;
+    background: #fff;
+    top: -15px;
+    right: -15px;
+    border-radius: 50%;
+    opacity: 1;
+  }
   .dropdown .dropdown-menu{
     opacity: 0;
     transition:         all 400ms ease;
@@ -1018,4 +1042,14 @@ Table of contents
   .dropdown:hover .dropdown-menu {
     display: block;
     opacity: 1;
+  }
+  .navbar-brand{
+    text-transform:uppercase;
+    font-size: 22px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
+    z-index: -1;
   }

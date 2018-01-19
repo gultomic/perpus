@@ -13,8 +13,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- <link href="css/nprogress.css" rel="stylesheet"> -->
+    <link href="{{ asset('css/nprogress.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/skins/flat/green.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/buttons.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fixedHeader.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/scroller.bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet">
     <style>
         h3.navbar-text {
@@ -45,7 +51,7 @@
                                     <a onClick="location.href='{{route('dashboard')}}'"><i class="fa fa-home"></i> Dashboard </a>
                                 </li>
                                 <li {{ Request::is('rent*') ? 'class=active' : null }}>
-                                    <a><i class="fa fa-shopping-bag"></i> Transaksi <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-shopping-bag"></i> Perpustakaan<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" {{ Request::is('rent*') ? 'style=display:block' : null }}>
                                         <li {{ Request::is('rent') ? 'class=active' : null }}>
                                             <a onClick="location.href='{{route('rent.index')}}'">Daftar Transaksi</a>
@@ -57,29 +63,32 @@
                                             <a onClick="location.href='{{route('rent.return')}}'">Pengembalian</a>
                                         </li>
                                         <li><a>Daftar Telat</a></li>
+                                        <li><a>Import Data</a></li>
+                                        <li><a>Profil Perpustakaan</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-edit"></i> Manajemen Buku <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                    <li><a>Daftar Buku</a></li>
-                                    <li><a>Tambah Buku</a></li>
-                                    <li><a href="form_validation.html">Form Validation</a></li>
-                                    <li><a href="form_wizards.html">Form Wizard</a></li>
-                                    <li><a href="form_upload.html">Form Upload</a></li>
-                                    <li><a href="form_buttons.html">Form Buttons</a></li>
+                                        <li><a>Daftar Buku</a></li>
+                                        <li><a>Tambah Buku</a></li>
+                                        <li><a>Lokasi Buku</a></li>
+                                        <li><a>Tambah Lokasi</a></li>
+                                        <li><a>Kategori Buku</a></li>
+                                        <li><a>Tambah Kategori</a></li>
+                                        <li><a>Buku Rusak</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-user-circle-o"></i> Member <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                    <li><a href="general_elements.html">General Elements</a></li>
-                                    <li><a href="media_gallery.html">Media Gallery</a></li>
-                                    <li><a href="typography.html">Typography</a></li>
-                                    <li><a href="icons.html">Icons</a></li>
-                                    <li><a href="glyphicons.html">Glyphicons</a></li>
-                                    <li><a href="widgets.html">Widgets</a></li>
-                                    <li><a href="invoice.html">Invoice</a></li>
-                                    <li><a href="inbox.html">Inbox</a></li>
-                                    <li><a href="calendar.html">Calendar</a></li>
+                                        <li><a>Daftar Member</a></li>
+                                        <li><a>Tambah Member</a></li>
+                                        <li><a href="typography.html">Typography</a></li>
+                                        <li><a href="icons.html">Icons</a></li>
+                                        <li><a href="glyphicons.html">Glyphicons</a></li>
+                                        <li><a href="widgets.html">Widgets</a></li>
+                                        <li><a href="invoice.html">Invoice</a></li>
+                                        <li><a href="inbox.html">Inbox</a></li>
+                                        <li><a href="calendar.html">Calendar</a></li>
                                     </ul>
                                 </li>
                                 {{--  <li><a><i class="fa fa-table"></i> Buku Elektronik <span class="fa fa-chevron-down"></span></a>
@@ -115,6 +124,8 @@
                                 <li><a href="project_detail.html">Project Detail</a></li>
                                 <li><a href="contacts.html">Contacts</a></li>
                                 <li><a href="profile.html">Profile</a></li>
+                                <li><a>Kategori Ebook</a></li>
+                                        <li><a>Tambah Kategori</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-video-camera"></i> Pustaka Video <span class="fa fa-chevron-down"></span></a>
@@ -125,27 +136,33 @@
                                 <li><a href="plain_page.html">Plain Page</a></li>
                                 <li><a href="login.html">Login Page</a></li>
                                 <li><a href="pricing_tables.html">Pricing Tables</a></li>
+                                <li><a>Kategori Video</a></li>
+                                        <li><a>Tambah Kategori</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-volume-up"></i> Pustaka Audio <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="#level1_1">Level One</a>
-                                    <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
+                                    <li><a>Kategori Audio</a></li>
+                                    <li><a>Tambah Kategori</a></li>
+                                    {{--  <li><a href="#level1_1">Level One</a>  --}}
+                                    {{--  <li><a>Level One<span class="fa fa-chevron-down"></span></a>  --}}
+                                    {{--  <ul class="nav child_menu">
                                         <li class="sub_menu"><a href="level2.html">Level Two</a>
                                         </li>
                                         <li><a href="#level2_1">Level Two</a>
                                         </li>
                                         <li><a href="#level2_2">Level Two</a>
                                         </li>
-                                    </ul>
-                                    </li>
+                                    </ul>  --}}
+                                    {{--  </li>
                                     <li><a href="#level1_2">Level One</a>
-                                    </li>
+                                    </li>  --}}
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-windows"></i> Materi Interaktif <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
+                                        <li><a>Kategori Materi</a></li>
+                                        <li><a>Tambah Kategori</a></li>
                                 <li><a href="page_403.html">403 Error</a></li>
                                 <li><a href="page_404.html">404 Error</a></li>
                                 <li><a href="page_500.html">500 Error</a></li>
@@ -156,6 +173,8 @@
                             </li>
                             <li><a><i class="fa fa-image"></i> Pustaka Gambar <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
+                                        <li><a>Kategori Gambar</a></li>
+                                        <li><a>Tambah Kategori</a></li>
                                     <li><a href="#level1_1">Level One</a>
                                     <li><a>Level One<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
@@ -188,7 +207,11 @@
                         <a data-toggle="tooltip" data-placement="top" title="Lock">
                             <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                        <a data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="Logout" 
+                            href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </a>
                     </div>
@@ -225,13 +248,14 @@
                             {{--  <li><a href="javascript:;">Help</a></li>  --}}
                             <li>
                                 <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
+                                    onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     <i class="fa fa-sign-out pull-right"></i> Logout
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form></li>
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
                         </ul>
                         </li>
 
@@ -311,25 +335,25 @@
                 <div class="row tile_count">
                     <!-- intro tiles -->
                     <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count">
-                            <a onClick="location.href='{{route('rent.create')}}'">
-                        <span class="count_top"><i class="fa fa-users"></i> Total Member</span>
-                        <div class="count blue">255.356.119</div>
-                        <span class="count_bottom"><i class="fa fa-hand-o-right green"></i> klik untuk melihat..!</span>
-                            </a>
+                        <a onClick="location.href='{{route('rent.create')}}'">
+                            <span class="count_top"><i class="fa fa-users"></i> Total Member</span>
+                            <div class="count blue">255.356.119</div>
+                            <span class="count_bottom"><i class="fa fa-hand-o-right green"></i> klik untuk melihat..!</span>
+                        </a>
                     </div>
                     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                            <a onClick="location.href='{{route('rent.create')}}'">
-                        <span class="count_top"><i class="fa fa-street-view"></i> Pengunjung Bulan ini</span>
-                        <div class="count">23.992</div>
-                        <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i>  Dari bulan lalu</span>
-                            </a>
+                        <a onClick="location.href='{{route('rent.create')}}'">
+                            <span class="count_top"><i class="fa fa-street-view"></i> Pengunjung Bulan ini</span>
+                            <div class="count">23.992</div>
+                            <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i>  Dari bulan lalu</span>
+                        </a>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count">
-                            <a onClick="location.href='{{route('rent.create')}}'">
-                        <span class="count_top"><i class="fa fa-book"></i> Total Buku Perpustakaan</span>
-                        <div class="count green">1.500.120.234</div>
-                        <span class="count_bottom"><i class="fa fa-hand-o-right green"></i> klik untuk melihat..!</span>
-                            </a>
+                        <a onClick="location.href='{{route('rent.create')}}'">
+                            <span class="count_top"><i class="fa fa-book"></i> Total Buku Perpustakaan</span>
+                            <div class="count green">1.500.120.234</div>
+                            <span class="count_bottom"><i class="fa fa-hand-o-right green"></i> klik untuk melihat..!</span>
+                        </a>
                     </div>
                     <!-- action tiles -->
                     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
@@ -379,6 +403,21 @@
     <script src="{{ asset('js/icheck.min.js') }}"></script>
     <script src="{{ asset('js/skycons.js') }}"></script>
     {{--  <script src="js/date.js"></script>  --}}
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('js/buttons.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.fixedHeader.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.keyTable.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('js/responsive.bootstrap.js') }}"></script>
+    <script src="{{ asset('js/dataTables.scroller.min.js') }}"></script>
+    <script src="{{ asset('js/jszip.min.js') }}"></script>
+    <script src="{{ asset('js/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('js/vfs_fonts.js') }}"></script>
     <script src="{{ asset('js/custom.min.js') }}"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
     @stack('scripts')
