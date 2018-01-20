@@ -16,5 +16,12 @@ class DatabaseSeeder extends Seeder
         $this->call(DummyLocation::class);
         $this->call(DummyBook::class);
         $this->call(DummyRent::class);
+        $this->call(DummyLogin::class);
+        $this->call(DummyVideo::class);
+        $this->call(DummyAudio::class);
+        $this->call(DummyEbook::class);
+        $this->call(DummyPhoto::class);
+        $this->call(DummyInteractive::class);
+        $this->call(DummyAnnouncement::class);
     }
 }

@@ -76,7 +76,7 @@
                                         <li><a>Tambah Lokasi</a></li>
                                         <li><a>Kategori Buku</a></li>
                                         <li><a>Tambah Kategori</a></li>
-                                        <li><a>Buku Rusak</a></li>
+                                        <li><a>Buku Rusak / Hilang</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-user-circle-o"></i> Member <span class="fa fa-chevron-down"></span></a>
