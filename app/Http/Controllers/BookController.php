@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\Support\Jsonable;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use App\Book;
 
 class BookController extends Controller
 {
     public function index()
     {
-        $query = Book::all();
+        $query = Book::paginate(10);
         // dd($query);
         return view('books.index', ['data' => $query]);
     }

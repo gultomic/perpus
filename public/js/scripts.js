@@ -155,7 +155,7 @@ function showdetailPop(data){
 		url: data,
 		dataType: "json"
 	}).done(function(res){
-		console.log(res);
+		// console.log(res);
 		$('#showdetail').empty().append(`
 			<div class="showdetail-img">
 				<img src="`+res.cover+`" alt="">

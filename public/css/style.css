@@ -140,7 +140,7 @@ Table of contents
     top: 0;
     left: 0;
     z-index: 999999;
-    background: rgba(255, 255, 255, 0.95);
+    background: #333333f0;
   }
 
   .loader {
@@ -277,13 +277,14 @@ Table of contents
   .body-intro{
     /* background-color: rgba(3, 3, 9, 0.5); */
     position: relative;
-    overflow-y: scroll;
-    height: 100%;
+    /* overflow-y: scroll; */
+    /* height: 100%; */
     z-index: 10;
   }
   .body-intro .container{
     background-color: rgba(119, 119, 119, 0.88);
-    margin-top: 72px;
+    /* margin-top: 50px; */
+    height: 100vh;
   }
 
   @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -847,11 +848,14 @@ Table of contents
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: 100vh;
   }
 
   .datalist .dataitems {
-    margin: 24px 12px 56px 12px;
+    margin: auto;
     position: relative;
   }
   .dataitems .item-img{
@@ -1052,4 +1056,16 @@ Table of contents
     text-align: center;
     margin: auto;
     z-index: -1;
+  }
+  .bootpag > ul.pagination{
+    margin: auto;
+    padding-top: 8px;
+  }
+  .bootpag > ul.pagination > li > a {
+    background-color: transparent;
+    border: none;
+  }
+  .bootpag > ul.pagination > li.disabled > span {
+    background-color: transparent;
+    border: none;
   }

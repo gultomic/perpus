@@ -3,25 +3,35 @@
 @section('content')
 <div class="body-intro">
   @include('elements.header')
-
   <div class="container">
       <div class="datalist">
-          @foreach($data as $key => $data)
+          @foreach($data as $item)
           <div class="dataitems">
             <div class="item-img">
-              <img src="{{$data->cover}}" alt="">
+              <img src="{{$item->cover}}" alt="">
             </div>
-            <div class="item-inner" data-id="{{$data->id}}">
+            <div class="item-inner" data-id="{{$item->id}}">
               <p class="item-detail">lihat</p>
             </div>
             <div class="item-title">
-              <p>{{$data->name}}</p>
+              <p>{{$item->name}}</p>
             </div>
           </div>
         @endforeach
       </div>
   </div>
+  <nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <p>FOOTER</p>
+      </div>
+      <div class="nav navbar-nav navbar-right bootpag"  style="margin-right:0;">
+        {{$data->render()}}
+      </div>
+    </div>
+  </nav>
 </div>
+
 @endsection
 @push('scripts')
 <script>
