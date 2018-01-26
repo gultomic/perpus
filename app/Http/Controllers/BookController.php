@@ -3,19 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Contracts\Support\Jsonable;
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use App\Book;
 
 class BookController extends Controller
 {
     public function index()
     {
-        $query = Book::paginate(10);
+        $books = Book::orderBy('id', 'desc');
+        $categoryId = Input::get('cat', false);
+        $search = Input::get('find', false);
+
+        $query['category'] = \App\Category::where('type', 1)->get();
+        // $query['books'] = Book::orderBy('id', 'desc')->paginate(10);
+
+        if($categoryId){
+            $books = Book::where('category_id', $categoryId);
+        }
+        if($search){
+            $books = Book::where('name', 'like', '%'.$search.'%');
+        }
         // dd($query);
+        $query['record'] = $books->count();
+        $query['books'] = $books->paginate(10);
+        
         return view('books.index', ['data' => $query]);
     }
 

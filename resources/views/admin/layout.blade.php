@@ -422,6 +422,21 @@
 <script src="{{ asset('js/vfs_fonts.js') }}"></script>
 @stack('scripts')
 <script src="{{ asset('js/custom.min.js') }}"></script>
-<script src="{{ asset('js/dashboard.js') }}"></script>
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            method: "get",
+            url: "/api/info",
+            dataType: "json",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        }).done(function(res){
+            console.log(res);
+        }).fail(function(err){
+            console.log(err);
+        })
+      });
+</script>
 </body>
 </html>

@@ -9,9 +9,9 @@ class Book extends Model
     protected $guarded = [];
     protected $table = 'books';
     protected $primaryKey = 'id';
-    // protected $fillable = [
-    //     'name', 'isbn', 'ddc', 'bcode', 'category_id'
-    // ];
+    protected $fillable = [
+        'name', 'isbn', 'ddc', 'bcode'
+    ];
 
     public function category()
     {

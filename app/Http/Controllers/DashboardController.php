@@ -45,4 +45,11 @@ class DashboardController extends Controller
   
         return view('admin.dashboard', ['records' => $records]);
     }
+
+    public function info()
+    {
+        $data['users'] = App\User::all();
+        
+        return response()->json($data);
+    }
 }

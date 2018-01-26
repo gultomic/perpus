@@ -76,10 +76,7 @@ module.exports = __webpack_require__(510);
 /***/ 510:
 /***/ (function(module, exports) {
 
-$(document).on('click', '.do-state', function () {
-  data = $(this).data('state');
-  console.log(data);
-});
+
 
 /***/ })
 
