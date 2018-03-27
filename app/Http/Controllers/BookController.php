@@ -23,7 +23,7 @@ class BookController extends Controller
         if($search){
             $books = Book::where('name', 'like', '%'.$search.'%');
         }
-        // dd($query);
+        // dd($books);
         $query['record'] = $books->count();
         $query['books'] = $books->paginate(10);
         
@@ -42,7 +42,8 @@ class BookController extends Controller
         ])
         ->all();
 
-        return response()->json($result);
+        // return response()->json($result);
+        return view('books.show', ['data' => $result]);
     }
 
     public function data()

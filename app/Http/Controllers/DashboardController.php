@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 use App\User;
 
 class DashboardController extends Controller
@@ -48,8 +49,13 @@ class DashboardController extends Controller
 
     public function info()
     {
-        $data['users'] = App\User::all();
-        
+        $data['month'] = Carbon::now();
+        $data['users'] = \App\User::count();
+        $data['books'] = \App\Book::count();
+        $data['return'] = \App\Rent::whereDate('returned', '=', date("Y-m-d"))->count();
+        $data['rents'] = \App\Rent::where('borrow', '>=', Carbon::now()->startOfMonth())->count();
+        $data['thismonth'] = \App\UserLogin::where('created_at', '>=', Carbon::now()->startOfMonth())->count();
+
         return response()->json($data);
     }
 }

@@ -150,12 +150,11 @@
 	});
 })(jQuery);
 
-function showdetailPop(data){
+function showdetailPop(data, type){
 	$.ajax({
 		url: data,
 		dataType: "json"
 	}).done(function(res){
-		// console.log(res);
 		$('#showdetail').empty().append(`
 			<div class="showdetail-img">
 				<img src="`+res.cover+`" alt="">
@@ -172,6 +171,11 @@ function showdetailPop(data){
 				<div class="content-footer"></div>
 			</div>
 		`);
+
+		if(type == 'ebook'){
+			$('.content-footer').empty().append('<button>Baca</button>');
+		}
+
 		$(this).magnificPopup({
 			items:{
 				src: '#showdetail',

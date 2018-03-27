@@ -16,7 +16,7 @@ Route::middleware('admin')->group(function(){
     })->name('rent.return');
     Route::resource('/rent', 'RentController');
 });
-
+Route::get('/info', 'DashboardController@info');
 // Route::get('tes', function(){
 //     $query = \App\Book::with('category')->get();
 //     return response()->json();

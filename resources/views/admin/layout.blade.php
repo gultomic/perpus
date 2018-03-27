@@ -29,6 +29,9 @@
         margin-left: 0;
         margin-top: 16px;
     }
+    .count{
+        min-height: 46px;
+    }
 </style>
 </head>
 <body class="nav-md">
@@ -339,21 +342,22 @@
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count">
                 <a onClick="location.href='{{route('rent.create')}}'">
                     <span class="count_top"><i class="fa fa-users"></i> Total Member</span>
-                    <div class="count blue">255.356.119</div>
+                    <div id="countUsers" class="count blue"></div>
                     <span class="count_bottom"><i class="fa fa-hand-o-right green"></i> klik untuk melihat..!</span>
                 </a>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                 <a onClick="location.href='{{route('rent.create')}}'">
                     <span class="count_top"><i class="fa fa-street-view"></i> Pengunjung Bulan ini</span>
-                    <div class="count">23.992</div>
-                    <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i>  Dari bulan lalu</span>
+                    <div id="countLogin" class="count"></div>
+                    {{--  <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i>  Dari bulan lalu</span>  --}}
+                    <span class="count_bottom"><i class="fa fa-hand-o-right green"></i> klik untuk melihat..!</span>
                 </a>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count">
                 <a onClick="location.href='{{route('rent.create')}}'">
                     <span class="count_top"><i class="fa fa-book"></i> Total Buku Perpustakaan</span>
-                    <div class="count green">1.500.120.234</div>
+                    <div id="countBooks" class="count green"></div>
                     <span class="count_bottom"><i class="fa fa-hand-o-right green"></i> klik untuk melihat..!</span>
                 </a>
             </div>
@@ -361,14 +365,15 @@
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                 <a onClick="location.href='{{route('rent.create')}}'">
                     <span class="count_top"><i class="fa fa-shopping-bag"></i> Peminjaman Bulan ini</span>
-                    <div class="count">70,325</div>
-                    <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i>  Dari bulan lalu</span>
+                    <div id="countRents" class="count"></div>
+                    {{--  <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i>  Dari bulan lalu</span>  --}}
+                    <span class="count_bottom"><i class="fa fa-hand-o-right green"></i> klik untuk melihat..!</span>
                 </a>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                 <a onClick="location.href='{{route('rent.return')}}'">
                     <span class="count_top"><i class="fa fa-hand-o-down"></i> Pengembalian Hari ini</span>
-                    <div class="count">0</div>
+                    <div id="countReturns" class="count"></div>
                     <span class="count_bottom"><i class="fa fa-hand-o-right green"></i> klik untuk transaksi..!</span>
                 </a>
             </div>
@@ -426,13 +431,23 @@
     $(document).ready(function(){
         $.ajax({
             method: "get",
-            url: "/api/info",
+            url: "/info",
             dataType: "json",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         }).done(function(res){
             console.log(res);
+            $('#countUsers').append(res.users.toLocaleString());
+            $('#countLogin').append(res.thismonth.toLocaleString());
+            $('#countBooks').append(res.books.toLocaleString());
+            $('#countRents').append(res.rents.toLocaleString());
+            {{--  if(res.return != 0){  --}}
+                $('#countReturns').append(res.return.toLocaleString());
+            {{--  }else{
+                $('#countReturns').append(res.return);
+            }  --}}
+            
         }).fail(function(err){
             console.log(err);
         })

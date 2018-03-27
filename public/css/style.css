@@ -1082,3 +1082,12 @@ Table of contents
     outline: none;
     box-shadow: none;
   }
+  .single{
+    padding-top: 65px;
+  }
+  .single-header{
+    display: flex
+  }
+  .single-header img{
+    width: 260px;
+  }

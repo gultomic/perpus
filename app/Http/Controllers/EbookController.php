@@ -3,22 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Ebook;
 
 class EbookController extends Controller
 {
     public function index()
     {
-        $query = Ebook::all();
-        $result = $query->map(function($item){
-            return [
-                'id' => $item->id,
-                'name' => $item->name,
-                'cover' => 'storage/ebooks/' . $item->folder . '/pages/1.jpg'
-            ];
-        });
-        // dd($result->all());
-        return view('ebooks.index', ['data' => $result]);
+        $ebooks = Ebook::orderBy('id', 'desc');
+        $categoryId = Input::get('cat', false);
+        $search = Input::get('find', false);
+        
+        $query['category'] = \App\Category::where('type', 1)->get();
+        
+        if($categoryId){
+            $ebooks = Ebook::where('category_id', $categoryId);
+        }
+        
+        if($search){
+            $ebooks = Ebook::where('name', 'like', '%'.$search.'%');
+        }
+        
+        $query['record'] = $ebooks->count();
+        $query['ebooks'] = $ebooks->paginate(10);
+        // dd($ebooks->name);
+        return view('ebooks.index', ['data' => $query]);
     }
 
     public function show($id)
@@ -35,5 +44,15 @@ class EbookController extends Controller
 
         // return response()->json($result);
         return view('ebooks.show');
+    }
+
+    public function single($id)
+    {
+        $query = EBook::findOrFail($id);
+        $result = collect($query)->merge([
+            'cover' => 'storage/ebooks/'.$query->folder.'/pages/1.jpg'
+        ])->all();
+
+        return response()->json($result);
     }
 }

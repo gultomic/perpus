@@ -17,4 +17,9 @@ class Category extends Model
     {
         return $this->hasMany('App\Book');
     }
+
+    public function ebooks()
+    {
+        return $this->hasMany('App\Ebook');
+    }
 }

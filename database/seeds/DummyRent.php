@@ -18,7 +18,7 @@ class DummyRent extends Seeder
         DB::table('rents')->truncate();
 
         // Past transactions
-        foreach(range(2, $users) as $user) {
+        foreach(range(2, 100) as $user) {
             if($user != 8 || $user != 25 || $user != 60) {
                 $rent = rand(3, 15);
 
@@ -50,6 +50,38 @@ class DummyRent extends Seeder
             }
         }
         // Late transaction
+
         //Progress transaction
+        foreach(range(200, 260) as $user) {
+            if($user != 208 || $user != 225 || $user != 250) {
+                $rent = rand(2, 5);
+
+                foreach(range(2, $rent) as $index) {
+                    $book = rand(1, $books);
+                    // $mo = rand(1, 6);
+                    $sd = rand(1, 16);
+                    $borrow = date('Y-m-d', mktime(0, 0, 0, date('m'), $sd, date('Y')));
+                    $return = date('Y-m-d', mktime(0, 0, 0, date('m'), $sd+1, date('Y')));
+
+                    if($sd != 4 and $sd != 14) {
+                        $returned = $return;
+                        $pay = null;
+                    }else{
+                        $late = rand(2, 4);
+                        $returned = date('Y-m-d', mktime(0, 0, 0, date('m'), $sd + $late, date('Y')));
+                        $pay = 1000 * $late;
+                    }
+
+                    DB::table('rents')->insert([
+                        'user_id' => $user,
+                        'book_id' => $book,
+                        'borrow' => $borrow,
+                        'return' => $return,
+                        'returned' => $returned,
+                        'pay' => $pay
+                    ]);
+                }
+            }
+        }
     }
 }

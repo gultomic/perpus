@@ -22,8 +22,8 @@ class DummyUser extends Seeder
             'role' => 'admin',
         ]);
 
-        foreach(range(2,60) as $index) {
-            $name = $faker->unique()->lastName();
+        foreach(range(2,1260) as $index) {
+            $name = $faker->unique()->firstName();
             DB::table('users')->insert([
                 'name' => strtolower($name),
                 'email' => strtolower($name) . '@digi.lib',

@@ -12,6 +12,8 @@ class Userlogin extends Model
         'user_id',
     ];
 
+    public $timestamps = false;
+
     public function user()
     {
         return $this->hasOne('App\User', 'id', 'user_id');

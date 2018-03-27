@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DummyPhoto::class);
         $this->call(DummyInteractive::class);
         $this->call(DummyAnnouncement::class);
+        $this->call(DummyComment::class);
     }
 }

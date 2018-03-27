@@ -10,7 +10,7 @@
             <div class="item-img">
               <img src="{{$item->cover}}" alt="">
             </div>
-            <div class="item-inner" data-id="{{$item->id}}">
+            <div class="item-inner" data-id="{{$item->id}}" onclick="location.href='{{url('/book/'.$item->id)}}'">
               <p class="item-detail">lihat</p>
             </div>
             <div class="item-title">
@@ -70,10 +70,10 @@
       $('.search-bar').val(_find);
     }
   });
-  $('.item-inner').on('click', function(){
-    book_id = $(this).data('id');
-    showdetailPop('book/'+book_id);
-  });
+  // $('.item-inner').on('click', function(){
+  //   book_id = $(this).data('id');
+  //   showdetailPop('book/'+book_id, 'book');
+  // });
   $('.category-select').change(function(){
     category = $(this).val();
     if(category != "0"){
